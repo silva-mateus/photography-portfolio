@@ -1,2 +1,337 @@
 /*Css*/
+// variables
+
+$primary-color: #384147;
+
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display+SC|Roboto:300,400&display=swap");
+@font-face {
+  font-family: "Amostely Signature";
+  src: url("../dist/css/font/AmostelySignature.ttf");
+}
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+header {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Signature
+
+.signature {
+  color: $primary-color;
+  text-align: center;
+  user-select: none;
+
+  &-heading {
+    font-family: "Amostely Signature", cursive;
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  &-subhead {
+    font-family: "Playfair Display SC", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+}
+
+// Navbar
+.navbar {
+  background-color: $primary-color;
+  &-toggler {
+    i {
+      color: white;
+      font-size: 25px;
+    }
+    .fa-times {
+      display: none;
+    }
+    &.menu-open {
+      .fa-bars {
+        display: none;
+      }
+      .fa-times {
+        display: block;
+      }
+    }
+  }
+  &-nav {
+    padding: 20px;
+  }
+}
+
+.nav-link {
+  color: white;
+  text-transform: uppercase;
+  font-stretch: 12px;
+  transition: opacity 0.5s;
+
+  &:hover {
+    color: white;
+  }
+}
+
+// About
+
+.about {
+  &-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-description {
+    width: 100%;
+    background: white;
+    padding: 40px;
+    outline: 5px solid rgba($primary-color, 0.5);
+    outline-offset: -5px;
+    order: 2;
+    margin-top: 5px;
+  }
+
+  &-image {
+    order: 1;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+// Galery
+
+.section-heading {
+  position: relative;
+  display: block;
+  margin-bottom: 100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: rgba($primary-color, 0.5);
+    width: 1px;
+    height: 50px;
+    top: 53px;
+    border-radius: 8px;
+  }
+}
+
+.heading-title {
+  font-family: "Playfair Display SC", sans-serif;
+  text-transform: uppercase;
+  color: $primary-color;
+  font-size: 22px;
+}
+
+.lightbox-content {
+  position: relative;
+  overflow: hidden;
+  &:hover img {
+    transform: scale(1.2);
+  }
+  img {
+    transition: transform 2s;
+  }
+  a {
+    &:hover {
+      &::before {
+        background: rgba(0, 0, 0, 0.7);
+      }
+      &::after {
+        opacity: 0.5;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      transition: background-color 0.5s;
+    }
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      content: "\f00e";
+      font-weight: 600;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 25px;
+      z-index: 11;
+      width: 70px;
+      height: 70px;
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+}
+
+// Testmonials
+
+.carousel {
+  padding: 0 20px;
+
+  .item {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    .img-box {
+      width: 135px;
+      height: 135px;
+      margin: 0 auto;
+      padding: 5px;
+      border: 1px solid $primary-color;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+      }
+    }
+  }
+  .testimonial {
+    padding: 25px;
+    font-style: italic;
+  }
+  .custumer {
+    text-transform: uppercase;
+    color: $primary-color;
+    font-weight: 300;
+  }
+
+  .carousel-control {
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $primary-color;
+    border-radius: 50%;
+    i {
+      font-size: 20px;
+      color: white;
+    }
+  }
+  &-indicators {
+    bottom: -40px;
+    li,
+    li.active {
+      width: 10px;
+      height: 10px;
+      background-color: $primary-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Footer
+
+footer {
+  background-color: #151515;
+  h5 {
+    color: white;
+    font-family: "Playfair Display SC", sans-serif;
+  }
+  h3 {
+    color: white;
+  }
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.input-group .btn {
+  background-color: $primary-color;
+  color: white;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+// Media Queries
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    background: transparent;
+    &-nav {
+      padding: 0;
+    }
+  }
+  .nav-link {
+    color: $primary-color;
+    &:hover {
+      color: inherit;
+    }
+  }
+  nav:hover .nav-link:not(:hover) {
+    opacity: 0.5;
+  }
+
+  .about-content {
+    position: relative;
+    display: block;
+    .about-description {
+      position: absolute;
+      top: 80%;
+      transform: translateY(-50%);
+      width: 60%;
+      outline-offset: -10px;
+    }
+    .about-image img {
+      width: 70%;
+      margin-left: auto;
+    }
+  }
+  .lighboxOverlay {
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .about-content {
+    .about-description {
+      top: 50%;
+      width: 40%;
+      outline: 10px solid rgba(56, 65, 71, 0.5);
+      outline-offset: -20px;
+    }
+
+    .about-image img {
+      width: 80%;
+    }
+  }
+  .lb-close {
+    position: absolute;
+    float: none;
+    top: -20px;
+    right: 30px;
+  }
+}
